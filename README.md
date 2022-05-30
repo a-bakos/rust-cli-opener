@@ -30,5 +30,5 @@ Store config data in a json file, so these aren't embedded in the program
 
 **Stage 2:**
 
-- Web scraping to extract info (eg. gym capacity, stock price)
+- Web scraping to extract info (eg. weather, gym capacity, stock price)
 - Show extracted info on an app dashboard
