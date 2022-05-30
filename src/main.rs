@@ -1,5 +1,7 @@
 use std::collections::HashMap;
 use std::io;
+mod gui;
+use gui::GUI;
 
 fn main() {
     // Resource library - this will eventually be in JSON
@@ -16,11 +18,11 @@ fn main() {
     //println!("{:?}", lib.get("note").is_some());
 
     loop {
-        println!(">> START");
+        gui::render(GUI::Start);
         let mut user_input = String::new();
         io::stdin()
             .read_line(&mut user_input)
-            .expect("Failed to user input");
+            .expect("Failed to read user input");
 
         // Validate user input
         let user_input: String = match user_input.trim().to_lowercase().parse() {
