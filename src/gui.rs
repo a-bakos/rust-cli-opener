@@ -1,11 +1,17 @@
 pub enum GUI {
-    Start,
-    Item2,
+    ProgramStart,
+    LoopStart,
+    OpenSuccess,
+    OpenFail,
+    NotFound,
 }
 
 pub fn render(item: GUI) {
     match item {
-        GUI::Start => println!("> START > "),
-        GUI::Item2 => println!("something else"),
+        GUI::ProgramStart => println!("> START > "),
+        GUI::LoopStart => println!("What do you want to open?"),
+        GUI::OpenSuccess => println!("Opened successfully!\n"),
+        GUI::OpenFail => println!("Opening failed!\n"),
+        GUI::NotFound => println!("Resource not found!\n"),
     }
 }

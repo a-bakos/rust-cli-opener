@@ -17,8 +17,9 @@ fn main() {
     //println!("{:?}", lib.get("cmd").is_some());
     //println!("{:?}", lib.get("note").is_some());
 
+    gui::render(GUI::ProgramStart);
     loop {
-        gui::render(GUI::Start);
+        gui::render(GUI::LoopStart);
         let mut user_input = String::new();
         io::stdin()
             .read_line(&mut user_input)
@@ -39,11 +40,13 @@ fn main() {
         if lib.get(&user_input).is_some() {
             let open_this: &str = lib.get(&user_input).unwrap();
             if open::that(open_this).is_ok() {
-                println!("OPENED");
+                gui::render(GUI::OpenSuccess);
                 continue;
+            } else {
+                gui::render(GUI::OpenFail);
             }
         } else {
-            println!("NOPE!");
+            gui::render(GUI::NotFound);
             continue;
         }
     }
